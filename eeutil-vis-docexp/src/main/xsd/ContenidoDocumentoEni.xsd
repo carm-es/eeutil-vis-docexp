@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:enifile="https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido" 
+targetNamespace="https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido" 
+elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD CONTENIDO DOCUMENTO ENI (v1.0)</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="contenido" type="enifile:TipoContenido"/>
+	<xsd:complexType name="TipoContenido">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="ValorBinario" type="xsd:base64Binary">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="es">Contenido en base64.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="referencia" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="es">Referencia interna al fichero de contenido.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
