@@ -9,11 +9,7 @@
    more details.
    You should have received a copy of the EUPL1.1 license
    along with this program; if not, you may find it at
-   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl -->
-
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
-
-<hibernate-reverse-engineering>
-  <table-filter match-catalog="eeutil_n" match-name="UnidadOrganica"/>
+   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl --> <?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd"> 
+<hibernate-reverse-engineering> 
+    <table-filter match-catalog="eeutil_n" match-name="UnidadOrganica" /> 
 </hibernate-reverse-engineering>
