@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
@@ -35,22 +35,9 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="target/generated-sources/annotations">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
-			<attribute name="m2e-apt" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="target/generated-sources/test-annotations">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
-			<attribute name="m2e-apt" value="true"/>
-			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/eeutil-model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/eeutil-inside-stub"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/es/mpt/dsic/eeutil-csvstoragews-stub/1.2/eeutil-csvstoragews-stub-1.2.jar"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/es/mpt/dsic/eeutil-csvbroker-stub/1.2/eeutil-csvbroker-stub-1.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

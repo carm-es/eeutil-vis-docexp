@@ -35,6 +35,7 @@
         <version>
             4.1
         </version> 
+		<relativePath>../eeutil-mvn-base/pom.xml</relativePath>
     </parent> 
     <dependencies> 
         <dependency> 
@@ -295,17 +296,17 @@
                 2.8.0
             </version> 
         </dependency> 
-        <dependency> 
-            <groupId>
-                es.gob.aapp.eeutil
-            </groupId> 
-            <artifactId>
-                eeutil-util
-            </artifactId> 
-            <version>
-                4.1
-            </version> 
-        </dependency> 
+<!--         <dependency>  -->
+<!--             <groupId> -->
+<!--                 es.gob.aapp.eeutil -->
+<!--             </groupId>  -->
+<!--             <artifactId> -->
+<!--                 eeutil-util -->
+<!--             </artifactId>  -->
+<!--             <version> -->
+<!--                 4.1 -->
+<!--             </version>  -->
+<!--         </dependency>  -->
         <dependency> 
             <groupId>
                 javax.ws.rs
@@ -340,17 +341,17 @@
             </version> 
         </dependency> 
         <!-- @FIRMA --> 
-        <dependency> 
-            <groupId>
-                es.gob.afirma
-            </groupId> 
-            <artifactId>
-                miniapplet-afirma
-            </artifactId> 
-            <version>
-                ${afirma.version}
-            </version> 
-        </dependency> 
+<!--         <dependency>  -->
+<!--             <groupId> -->
+<!--                 es.gob.afirma -->
+<!--             </groupId>  -->
+<!--             <artifactId> -->
+<!--                 miniapplet-afirma -->
+<!--             </artifactId>  -->
+<!--             <version> -->
+<!--                 ${afirma.version} -->
+<!--             </version>  -->
+<!--         </dependency>  -->
         <!--
 		<dependency>
 			<groupId>es.gob.afirma</groupId>

@@ -32,7 +32,8 @@
         </artifactId> 
         <version>
             4.1
-        </version> 
+        </version>
+        <relativePath>../eeutil-mvn-base/pom.xml</relativePath> 
     </parent> 
     <properties> 
         <jetty.port>
@@ -107,28 +108,28 @@
             </version> 
         </dependency> 
         <!-- APP --> 
-        <dependency> 
-            <groupId>
-                es.gob.aapp.eeutil
-            </groupId> 
-            <artifactId>
-                eeutil-pdf-conversion
-            </artifactId> 
-            <version>
-                4.2
-            </version> 
-        </dependency> 
-        <dependency> 
-            <groupId>
-                es.gob.aapp.eeutil
-            </groupId> 
-            <artifactId>
-                eeutil-comunes
-            </artifactId> 
-            <version>
-                4.2
-            </version> 
-        </dependency> 
+<!--         <dependency>  -->
+<!--             <groupId> -->
+<!--                 es.gob.aapp.eeutil -->
+<!--             </groupId>  -->
+<!--             <artifactId> -->
+<!--                 eeutil-pdf-conversion -->
+<!--             </artifactId>  -->
+<!--             <version> -->
+<!--                 4.2 -->
+<!--             </version>  -->
+<!--         </dependency>  -->
+<!--         <dependency>  -->
+<!--             <groupId> -->
+<!--                 es.gob.aapp.eeutil -->
+<!--             </groupId>  -->
+<!--             <artifactId> -->
+<!--                 eeutil-comunes -->
+<!--             </artifactId>  -->
+<!--             <version> -->
+<!--                 4.2 -->
+<!--             </version>  -->
+<!--         </dependency>  -->
         <!-- JASPER REPORT --> 
         <dependency> 
             <groupId>
@@ -319,35 +320,35 @@
                 </dependency> 
             </dependencies> 
         </profile> 
-        <profile> 
-            <id>
-                redSara
-            </id> 
-            <activation> 
-                <activeByDefault>
-                    true
-                </activeByDefault> 
-            </activation> 
-            <dependencies> 
-                <dependency> 
-                    <groupId>
-                        com.oracle
-                    </groupId> 
-                    <artifactId>
-                        ojdbc6
-                    </artifactId> 
-                    <version>
-                        11.2.0.4
-                    </version> 
-                    <type>
-                        jar
-                    </type> 
-                    <scope>
-                        provided
-                    </scope> 
-                </dependency> 
-            </dependencies> 
-        </profile> 
+<!--         <profile>  -->
+<!--             <id> -->
+<!--                 redSara -->
+<!--             </id>  -->
+<!--             <activation>  -->
+<!--                 <activeByDefault> -->
+<!--                     true -->
+<!--                 </activeByDefault>  -->
+<!--             </activation>  -->
+<!--             <dependencies>  -->
+<!--                 <dependency>  -->
+<!--                     <groupId> -->
+<!--                         com.oracle -->
+<!--                     </groupId>  -->
+<!--                     <artifactId> -->
+<!--                         ojdbc6 -->
+<!--                     </artifactId>  -->
+<!--                     <version> -->
+<!--                         11.2.0.4 -->
+<!--                     </version>  -->
+<!--                     <type> -->
+<!--                         jar -->
+<!--                     </type>  -->
+<!--                     <scope> -->
+<!--                         provided -->
+<!--                     </scope>  -->
+<!--                 </dependency>  -->
+<!--             </dependencies>  -->
+<!--         </profile>  -->
         <profile> 
             <id>
                 debug

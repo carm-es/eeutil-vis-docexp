@@ -8,9 +8,9 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
@@ -24,22 +24,10 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="target/generated-sources/annotations">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
-			<attribute name="m2e-apt" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="target/generated-sources/test-annotations">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
-			<attribute name="m2e-apt" value="true"/>
-			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/eeutil-util"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/com/artofsolving/jodconverter/2.2.2/jodconverter-2.2.2.jar"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/com/artofsolving/jodconverter-cli/2.2.2/jodconverter-cli-2.2.2.jar"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/es/igae/vistaDocumentoIGAE/3.0.23/vistaDocumentoIGAE-3.0.23.jar"/>
+	<classpathentry kind="lib" path="Y:/home/.m2/repository/com/artofsolving/jodconverter-core/3.0-beta-4-jahia2/jodconverter-core-3.0-beta-4-jahia2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

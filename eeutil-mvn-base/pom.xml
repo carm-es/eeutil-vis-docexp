@@ -702,7 +702,8 @@
                 http://maven.mpt.es/artifactory/libs-snapshot-local
             </url> 
         </snapshotRepository> 
-    </distributionManagement> 
+    </distributionManagement>
+     
     <modules> 
         <module>
             ../eeutil-afirmaws-stub
