@@ -29,8 +29,7 @@
         </artifactId> 
         <version>
             4.1
-        </version>
-        <relativePath>../eeutil-mvn-base/pom.xml</relativePath> 
+        </version> 
     </parent> 
     <dependencies> 
         <!-- JAVAX --> 
@@ -356,49 +355,49 @@
             </scope> 
         </dependency> 
         <!-- APP --> 
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.gob.aapp.eeutil -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-services -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 4.1 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.gob.aapp.eeutil -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-util -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 4.1 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.gob.aapp.eeutil -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-afirmaws-stub -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 4.2 -->
-<!--             </version>  -->
-<!--             <exclusions>  -->
-<!--                 <exclusion>  -->
-<!--                     <artifactId> -->
-<!--                         cxf-rt-ws-security -->
-<!--                     </artifactId>  -->
-<!--                     <groupId> -->
-<!--                         org.apache.cxf -->
-<!--                     </groupId>  -->
-<!--                 </exclusion>  -->
-<!--             </exclusions>  -->
-<!--         </dependency>  -->
+        <dependency> 
+            <groupId>
+                es.gob.aapp.eeutil
+            </groupId> 
+            <artifactId>
+                eeutil-services
+            </artifactId> 
+            <version>
+                4.1
+            </version> 
+        </dependency> 
+        <dependency> 
+            <groupId>
+                es.gob.aapp.eeutil
+            </groupId> 
+            <artifactId>
+                eeutil-util
+            </artifactId> 
+            <version>
+                4.1
+            </version> 
+        </dependency> 
+        <dependency> 
+            <groupId>
+                es.gob.aapp.eeutil
+            </groupId> 
+            <artifactId>
+                eeutil-afirmaws-stub
+            </artifactId> 
+            <version>
+                4.2
+            </version> 
+            <exclusions> 
+                <exclusion> 
+                    <artifactId>
+                        cxf-rt-ws-security
+                    </artifactId> 
+                    <groupId>
+                        org.apache.cxf
+                    </groupId> 
+                </exclusion> 
+            </exclusions> 
+        </dependency> 
     </dependencies> 
     <build> 
         <plugins> 

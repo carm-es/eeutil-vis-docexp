@@ -35,8 +35,7 @@
         </artifactId> 
         <version>
             4.1
-        </version>
-        <relativePath>../eeutil-mvn-base/pom.xml</relativePath> 
+        </version> 
     </parent> 
     <dependencies> 
         <dependency> 

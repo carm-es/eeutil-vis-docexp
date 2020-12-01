@@ -26,8 +26,7 @@
         </artifactId> 
         <version>
             4.1
-        </version>
-        <relativePath>../eeutil-mvn-base/pom.xml</relativePath> 
+        </version> 
     </parent> 
     <dependencies> 
         <dependency> 
@@ -283,17 +282,17 @@
                 compile
             </scope> 
         </dependency> 
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.gob.aapp.eeutil -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-model -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 4.1 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
+        <dependency> 
+            <groupId>
+                es.gob.aapp.eeutil
+            </groupId> 
+            <artifactId>
+                eeutil-model
+            </artifactId> 
+            <version>
+                4.1
+            </version> 
+        </dependency> 
         <dependency> 
             <groupId>
                 org.springframework.security
@@ -349,39 +348,39 @@
                 2.0
             </version> 
         </dependency> 
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.gob.aapp.eeutil -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-inside-stub -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 2.1 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.mpt.dsic -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-csvstoragews-stub -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 1.2 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
-<!--         <dependency>  -->
-<!--             <groupId> -->
-<!--                 es.mpt.dsic -->
-<!--             </groupId>  -->
-<!--             <artifactId> -->
-<!--                 eeutil-csvbroker-stub -->
-<!--             </artifactId>  -->
-<!--             <version> -->
-<!--                 1.2 -->
-<!--             </version>  -->
-<!--         </dependency>  -->
+        <dependency> 
+            <groupId>
+                es.gob.aapp.eeutil
+            </groupId> 
+            <artifactId>
+                eeutil-inside-stub
+            </artifactId> 
+            <version>
+                2.1
+            </version> 
+        </dependency> 
+        <dependency> 
+            <groupId>
+                es.mpt.dsic
+            </groupId> 
+            <artifactId>
+                eeutil-csvstoragews-stub
+            </artifactId> 
+            <version>
+                1.2
+            </version> 
+        </dependency> 
+        <dependency> 
+            <groupId>
+                es.mpt.dsic
+            </groupId> 
+            <artifactId>
+                eeutil-csvbroker-stub
+            </artifactId> 
+            <version>
+                1.2
+            </version> 
+        </dependency> 
         <dependency> 
             <groupId>
                 commons-collections
