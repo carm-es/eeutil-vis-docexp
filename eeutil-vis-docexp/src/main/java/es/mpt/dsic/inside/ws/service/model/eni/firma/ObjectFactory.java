@@ -34,11 +34,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TipoFirmasElectronicas }
+     * Create an instance of {@link Firmas }
      * 
      */
-    public TipoFirmasElectronicas createTipoFirmasElectronicas() {
-        return new TipoFirmasElectronicas();
+    public Firmas createFirmas() {
+        return new Firmas();
     }
 
     /**
@@ -66,11 +66,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Firmas }
+     * Create an instance of {@link TipoFirmasElectronicas }
      * 
      */
-    public Firmas createFirmas() {
-        return new Firmas();
+    public TipoFirmasElectronicas createTipoFirmasElectronicas() {
+        return new TipoFirmasElectronicas();
     }
 
     /**

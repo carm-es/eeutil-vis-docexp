@@ -328,7 +328,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<dependencies>
-				<dependency>
+				<!-- <dependency>
 					<groupId>
                         com.oracle
                     </groupId>
@@ -344,7 +344,7 @@
 					<scope>
                         provided
                     </scope>
-				</dependency>
+				</dependency> -->
 			</dependencies>
 		</profile>
 		<profile>
