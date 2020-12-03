@@ -29,7 +29,7 @@
 	<description>
         Librerias del proyecto Eeutil
     </description>
-    
+
 	<organization>
 		<name>
             Ministerio de Politica Territorial y Administración Pública
@@ -72,6 +72,38 @@
 			never
 		</fork.mode.itegration.tests>
 	</properties>
+
+	<scm>
+		<connection>scm:git:https://github.com/aid35y/Eeutil-Vis-Docexp.git</connection>
+		<developerConnection>scm:git:[push=]https://github.com/aid35y/Eeutil-Vis-Docexp.git[fetch=]https://github.com/aid35y/Eeutil-Vis-Docexp.git</developerConnection>
+		<url>https://github.com/aid35y/Eeutil-Vis-Docexp.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<repositories>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<id>Eeutil-Vis-Docexp</id>
+			<name>Eeutil-Vis-Docexp</name>
+			<url>https://raw.githubusercontent.com/aid35y/Eeutil-Vis-Docexp/mvn-repo</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- SPRING -->
@@ -675,6 +707,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<distributionManagement>
 		<repository>
 			<id>
@@ -703,7 +736,7 @@
 		<module>
             ../eeutil-afirmaws-stub
         </module>
-		
+
 		<module>
             ../eeutil-inside-stub
         </module>
@@ -728,29 +761,15 @@
 		<module>
             ../load-tables
         </module>
-        <module>
+		<module>
             ../eeutil-vis-docexp
         </module>
-        
-        <!-- <module>
-            ../eeutil-csvbroker-stub
-        </module>
-		<module>
-            ../eeutil-csvstoragews-stub
-        </module> -->
-		<!-- <module>
-            ../eeutil-firma
-        </module>
-		<module>
-            ../eeutil-misc
-        </module>
-		<module>
-            ../eeutil-oper-firma
-        </module>
-		<module>
-            ../eeutil-util-firma
-        </module> -->
-		
+
+		<!-- <module> ../eeutil-csvbroker-stub </module> <module> ../eeutil-csvstoragews-stub 
+			</module> -->
+		<!-- <module> ../eeutil-firma </module> <module> ../eeutil-misc </module> 
+			<module> ../eeutil-oper-firma </module> <module> ../eeutil-util-firma </module> -->
+
 	</modules>
 
 	<build>
