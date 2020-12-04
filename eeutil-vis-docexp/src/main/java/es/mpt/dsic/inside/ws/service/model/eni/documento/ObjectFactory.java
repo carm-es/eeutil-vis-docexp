@@ -36,14 +36,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TipoEstadoElaboracion }
-     * 
-     */
-    public TipoEstadoElaboracion createTipoEstadoElaboracion() {
-        return new TipoEstadoElaboracion();
-    }
-
-    /**
      * Create an instance of {@link TipoDocumento }
      * 
      */
@@ -65,6 +57,14 @@ public class ObjectFactory {
      */
     public TipoMetadatos createTipoMetadatos() {
         return new TipoMetadatos();
+    }
+
+    /**
+     * Create an instance of {@link TipoEstadoElaboracion }
+     * 
+     */
+    public TipoEstadoElaboracion createTipoEstadoElaboracion() {
+        return new TipoEstadoElaboracion();
     }
 
     /**
