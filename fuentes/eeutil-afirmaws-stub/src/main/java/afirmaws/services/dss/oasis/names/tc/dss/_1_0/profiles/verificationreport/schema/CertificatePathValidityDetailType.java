@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 2012-13 MINHAP, Gobierno de Espa�a This program is licensed and may be used,
+﻿/*
+ * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
  * modified and redistributed under the terms of the European Public License (EUPL), either version
  * 1.1 or (at your option) any later version as soon as they are approved by the European
  * Commission. Unless required by applicable law or agreed to in writing, software distributed under

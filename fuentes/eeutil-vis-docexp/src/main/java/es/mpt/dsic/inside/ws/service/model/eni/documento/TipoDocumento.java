@@ -1,4 +1,4 @@
-
+ï»¿
 package es.mpt.dsic.inside.ws.service.model.eni.documento;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -93,7 +93,7 @@ public class TipoDocumento {
     }
 
     /**
-     * La firma es obligatoria para el documento administrativo electrónico y para todo aquel documento electrónico susceptible de ser incorporado en un expediente electrónico.
+     * La firma es obligatoria para el documento administrativo electrÃ³nico y para todo aquel documento electrÃ³nico susceptible de ser incorporado en un expediente electrÃ³nico.
      * 
      * @return
      *     possible object is
