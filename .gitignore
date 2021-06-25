@@ -73,8 +73,6 @@ Desktop.ini
  
 # Linux
 .*
-!.mvn
-!.gitattributes
 !.gitignore
 !.htaccess
 *~
@@ -93,4 +91,3 @@ classes
 build
 target
 .gradle
-

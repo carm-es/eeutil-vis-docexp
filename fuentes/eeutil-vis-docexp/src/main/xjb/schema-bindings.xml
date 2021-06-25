@@ -11,35 +11,35 @@
    You should have received a copy of the EUPL1.1 license
    along with this program; if not, you may find it at
    http://joinup.ec.europa.eu/software/page/eupl/licence-eupl -->
-<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1"> 
-    <bindings schemaLocation="../xsd/ContenidoDocumentoEni.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.eni.documento" /> 
-        </schemaBindings> 
-    </bindings> 
-    <bindings schemaLocation="../xsd/DocumentoEni.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.eni.documento" /> 
-        </schemaBindings> 
-    </bindings> 
-    <bindings schemaLocation="../xsd/DocumentoEniConAdicionales.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.documento" /> 
-        </schemaBindings> 
-    </bindings> 
-    <bindings schemaLocation="../xsd/FirmasEni.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.eni.firma" /> 
-        </schemaBindings> 
-    </bindings> 
-    <bindings schemaLocation="../xsd/MetadatosDocumentoEni.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.eni.documento" /> 
-        </schemaBindings> 
-    </bindings> 
-    <bindings schemaLocation="../xsd/TipoMetadatosAdicionales.xsd"> 
-        <schemaBindings> 
-            <package name="es.mpt.dsic.inside.ws.service.model.adicionales" /> 
-        </schemaBindings> 
-    </bindings> 
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1" >  
+  <bindings schemaLocation="../xsd/ContenidoDocumentoEni.xsd">
+    <schemaBindings>
+      <package name="es.mpt.dsic.inside.ws.service.model.eni.documento"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../xsd/DocumentoEni.xsd">
+    <schemaBindings>    	 
+      <package name="es.mpt.dsic.inside.ws.service.model.eni.documento"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../xsd/DocumentoEniConAdicionales.xsd">
+    <schemaBindings>
+      <package name="es.mpt.dsic.inside.ws.service.model.documento"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../xsd/FirmasEni.xsd">
+    <schemaBindings>
+      <package name="es.mpt.dsic.inside.ws.service.model.eni.firma"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../xsd/MetadatosDocumentoEni.xsd">
+    <schemaBindings>
+      <package name="es.mpt.dsic.inside.ws.service.model.eni.documento"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../xsd/TipoMetadatosAdicionales.xsd">
+    <schemaBindings>
+      <package name="es.mpt.dsic.inside.ws.service.model.adicionales"/>
+    </schemaBindings>
+  </bindings>
 </bindings>
