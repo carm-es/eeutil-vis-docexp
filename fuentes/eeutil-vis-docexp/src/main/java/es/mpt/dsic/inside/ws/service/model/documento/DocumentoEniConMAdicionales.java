@@ -10,9 +10,11 @@ import es.mpt.dsic.inside.ws.service.model.eni.documento.TipoDocumento;
 
 
 /**
- * <p>Java class for DocumentoEniConMAdicionales complex type.
+ * <p>
+ * Java class for DocumentoEniConMAdicionales complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="DocumentoEniConMAdicionales">
@@ -30,62 +32,51 @@ import es.mpt.dsic.inside.ws.service.model.eni.documento.TipoDocumento;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "DocumentoEniConMAdicionales", propOrder = {
-    "documento",
-    "metadatosAdicionales"
-})
+@XmlType(name = "DocumentoEniConMAdicionales", propOrder = {"documento", "metadatosAdicionales"})
 public class DocumentoEniConMAdicionales {
 
-    @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", required = true)
-    protected TipoDocumento documento;
-    protected TipoMetadatosAdicionales metadatosAdicionales;
+  @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", required = true)
+  protected TipoDocumento documento;
+  protected TipoMetadatosAdicionales metadatosAdicionales;
 
-    /**
-     * Gets the value of the documento property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TipoDocumento }
-     *     
-     */
-    public TipoDocumento getDocumento() {
-        return documento;
-    }
+  /**
+   * Gets the value of the documento property.
+   * 
+   * @return possible object is {@link TipoDocumento }
+   * 
+   */
+  public TipoDocumento getDocumento() {
+    return documento;
+  }
 
-    /**
-     * Sets the value of the documento property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TipoDocumento }
-     *     
-     */
-    public void setDocumento(TipoDocumento value) {
-        this.documento = value;
-    }
+  /**
+   * Sets the value of the documento property.
+   * 
+   * @param value allowed object is {@link TipoDocumento }
+   * 
+   */
+  public void setDocumento(TipoDocumento value) {
+    this.documento = value;
+  }
 
-    /**
-     * Gets the value of the metadatosAdicionales property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TipoMetadatosAdicionales }
-     *     
-     */
-    public TipoMetadatosAdicionales getMetadatosAdicionales() {
-        return metadatosAdicionales;
-    }
+  /**
+   * Gets the value of the metadatosAdicionales property.
+   * 
+   * @return possible object is {@link TipoMetadatosAdicionales }
+   * 
+   */
+  public TipoMetadatosAdicionales getMetadatosAdicionales() {
+    return metadatosAdicionales;
+  }
 
-    /**
-     * Sets the value of the metadatosAdicionales property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TipoMetadatosAdicionales }
-     *     
-     */
-    public void setMetadatosAdicionales(TipoMetadatosAdicionales value) {
-        this.metadatosAdicionales = value;
-    }
+  /**
+   * Sets the value of the metadatosAdicionales property.
+   * 
+   * @param value allowed object is {@link TipoMetadatosAdicionales }
+   * 
+   */
+  public void setMetadatosAdicionales(TipoMetadatosAdicionales value) {
+    this.metadatosAdicionales = value;
+  }
 
 }

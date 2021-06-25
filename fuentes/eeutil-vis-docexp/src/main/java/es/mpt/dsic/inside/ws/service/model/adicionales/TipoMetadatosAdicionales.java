@@ -10,9 +10,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TipoMetadatosAdicionales complex type.
+ * <p>
+ * Java class for TipoMetadatosAdicionales complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="TipoMetadatosAdicionales">
@@ -29,41 +31,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TipoMetadatosAdicionales", propOrder = {
-    "metadatoAdicional"
-})
+@XmlType(name = "TipoMetadatosAdicionales", propOrder = {"metadatoAdicional"})
 public class TipoMetadatosAdicionales {
 
-    @XmlElement(name = "MetadatoAdicional", required = true)
-    protected List<MetadatoAdicional> metadatoAdicional;
+  @XmlElement(name = "MetadatoAdicional", required = true)
+  protected List<MetadatoAdicional> metadatoAdicional;
 
-    /**
-     * Gets the value of the metadatoAdicional property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the metadatoAdicional property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getMetadatoAdicional().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link MetadatoAdicional }
-     * 
-     * 
-     */
-    public List<MetadatoAdicional> getMetadatoAdicional() {
-        if (metadatoAdicional == null) {
-            metadatoAdicional = new ArrayList<MetadatoAdicional>();
-        }
-        return this.metadatoAdicional;
+  /**
+   * Gets the value of the metadatoAdicional property.
+   * 
+   * <p>
+   * This accessor method returns a reference to the live list, not a snapshot. Therefore any
+   * modification you make to the returned list will be present inside the JAXB object. This is why
+   * there is not a <CODE>set</CODE> method for the metadatoAdicional property.
+   * 
+   * <p>
+   * For example, to add a new item, do as follows:
+   * 
+   * <pre>
+   * getMetadatoAdicional().add(newItem);
+   * </pre>
+   * 
+   * 
+   * <p>
+   * Objects of the following type(s) are allowed in the list {@link MetadatoAdicional }
+   * 
+   * 
+   */
+  public List<MetadatoAdicional> getMetadatoAdicional() {
+    if (metadatoAdicional == null) {
+      metadatoAdicional = new ArrayList<MetadatoAdicional>();
     }
+    return this.metadatoAdicional;
+  }
 
 }

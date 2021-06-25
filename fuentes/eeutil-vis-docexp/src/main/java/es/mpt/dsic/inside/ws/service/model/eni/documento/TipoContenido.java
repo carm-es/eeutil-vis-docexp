@@ -8,9 +8,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TipoContenido complex type.
+ * <p>
+ * Java class for TipoContenido complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="TipoContenido">
@@ -30,60 +32,51 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TipoContenido", namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido", propOrder = {
-    "valorBinario",
-    "referencia"
-})
+@XmlType(name = "TipoContenido",
+    namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido",
+    propOrder = {"valorBinario", "referencia"})
 public class TipoContenido {
 
-    @XmlElement(name = "ValorBinario")
-    protected byte[] valorBinario;
-    protected String referencia;
+  @XmlElement(name = "ValorBinario")
+  protected byte[] valorBinario;
+  protected String referencia;
 
-    /**
-     * Gets the value of the valorBinario property.
-     * 
-     * @return
-     *     possible object is
-     *     byte[]
-     */
-    public byte[] getValorBinario() {
-        return valorBinario;
-    }
+  /**
+   * Gets the value of the valorBinario property.
+   * 
+   * @return possible object is byte[]
+   */
+  public byte[] getValorBinario() {
+    return valorBinario;
+  }
 
-    /**
-     * Sets the value of the valorBinario property.
-     * 
-     * @param value
-     *     allowed object is
-     *     byte[]
-     */
-    public void setValorBinario(byte[] value) {
-        this.valorBinario = ((byte[]) value);
-    }
+  /**
+   * Sets the value of the valorBinario property.
+   * 
+   * @param value allowed object is byte[]
+   */
+  public void setValorBinario(byte[] value) {
+    this.valorBinario = ((byte[]) value);
+  }
 
-    /**
-     * Gets the value of the referencia property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getReferencia() {
-        return referencia;
-    }
+  /**
+   * Gets the value of the referencia property.
+   * 
+   * @return possible object is {@link String }
+   * 
+   */
+  public String getReferencia() {
+    return referencia;
+  }
 
-    /**
-     * Sets the value of the referencia property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setReferencia(String value) {
-        this.referencia = value;
-    }
+  /**
+   * Sets the value of the referencia property.
+   * 
+   * @param value allowed object is {@link String }
+   * 
+   */
+  public void setReferencia(String value) {
+    this.referencia = value;
+  }
 
 }

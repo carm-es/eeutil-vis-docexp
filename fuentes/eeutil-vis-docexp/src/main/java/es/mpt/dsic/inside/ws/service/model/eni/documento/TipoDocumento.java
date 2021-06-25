@@ -1,4 +1,4 @@
-﻿
+
 package es.mpt.dsic.inside.ws.service.model.eni.documento;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,9 +9,11 @@ import es.mpt.dsic.inside.ws.service.model.eni.firma.Firmas;
 
 
 /**
- * <p>Java class for TipoDocumento complex type.
+ * <p>
+ * Java class for TipoDocumento complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="TipoDocumento">
@@ -30,90 +32,79 @@ import es.mpt.dsic.inside.ws.service.model.eni.firma.Firmas;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TipoDocumento", namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", propOrder = {
-    "contenido",
-    "metadatos",
-    "firmas"
-})
+@XmlType(name = "TipoDocumento",
+    namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento",
+    propOrder = {"contenido", "metadatos", "firmas"})
 public class TipoDocumento {
 
-    @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido", required = true)
-    protected TipoContenido contenido;
-    @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos", required = true)
-    protected TipoMetadatos metadatos;
-    @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/firma")
-    protected Firmas firmas;
+  @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido",
+      required = true)
+  protected TipoContenido contenido;
+  @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos",
+      required = true)
+  protected TipoMetadatos metadatos;
+  @XmlElement(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/firma")
+  protected Firmas firmas;
 
-    /**
-     * Gets the value of the contenido property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TipoContenido }
-     *     
-     */
-    public TipoContenido getContenido() {
-        return contenido;
-    }
+  /**
+   * Gets the value of the contenido property.
+   * 
+   * @return possible object is {@link TipoContenido }
+   * 
+   */
+  public TipoContenido getContenido() {
+    return contenido;
+  }
 
-    /**
-     * Sets the value of the contenido property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TipoContenido }
-     *     
-     */
-    public void setContenido(TipoContenido value) {
-        this.contenido = value;
-    }
+  /**
+   * Sets the value of the contenido property.
+   * 
+   * @param value allowed object is {@link TipoContenido }
+   * 
+   */
+  public void setContenido(TipoContenido value) {
+    this.contenido = value;
+  }
 
-    /**
-     * Gets the value of the metadatos property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TipoMetadatos }
-     *     
-     */
-    public TipoMetadatos getMetadatos() {
-        return metadatos;
-    }
+  /**
+   * Gets the value of the metadatos property.
+   * 
+   * @return possible object is {@link TipoMetadatos }
+   * 
+   */
+  public TipoMetadatos getMetadatos() {
+    return metadatos;
+  }
 
-    /**
-     * Sets the value of the metadatos property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TipoMetadatos }
-     *     
-     */
-    public void setMetadatos(TipoMetadatos value) {
-        this.metadatos = value;
-    }
+  /**
+   * Sets the value of the metadatos property.
+   * 
+   * @param value allowed object is {@link TipoMetadatos }
+   * 
+   */
+  public void setMetadatos(TipoMetadatos value) {
+    this.metadatos = value;
+  }
 
-    /**
-     * La firma es obligatoria para el documento administrativo electrónico y para todo aquel documento electrónico susceptible de ser incorporado en un expediente electrónico.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Firmas }
-     *     
-     */
-    public Firmas getFirmas() {
-        return firmas;
-    }
+  /**
+   * La firma es obligatoria para el documento administrativo electrónico y para todo aquel
+   * documento electrónico susceptible de ser incorporado en un expediente electrónico.
+   * 
+   * @return possible object is {@link Firmas }
+   * 
+   */
+  public Firmas getFirmas() {
+    return firmas;
+  }
 
-    /**
-     * Sets the value of the firmas property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Firmas }
-     *     
-     */
-    public void setFirmas(Firmas value) {
-        this.firmas = value;
-    }
+  /**
+   * Sets the value of the firmas property.
+   * 
+   * @param value allowed object is {@link Firmas }
+   * 
+   */
+  public void setFirmas(Firmas value) {
+    this.firmas = value;
+  }
 
 }
