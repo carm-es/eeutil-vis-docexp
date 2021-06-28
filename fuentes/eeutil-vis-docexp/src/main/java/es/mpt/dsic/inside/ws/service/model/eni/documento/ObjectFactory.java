@@ -20,10 +20,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-  private final static QName _Documento_QNAME =
-      new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", "documento");
   private final static QName _Metadatos_QNAME =
       new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos", "metadatos");
+  private final static QName _Documento_QNAME =
+      new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", "documento");
   private final static QName _Contenido_QNAME =
       new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido", "contenido");
 
@@ -35,19 +35,11 @@ public class ObjectFactory {
   public ObjectFactory() {}
 
   /**
-   * Create an instance of {@link TipoDocumento }
+   * Create an instance of {@link TipoMetadatos }
    * 
    */
-  public TipoDocumento createTipoDocumento() {
-    return new TipoDocumento();
-  }
-
-  /**
-   * Create an instance of {@link TipoContenido }
-   * 
-   */
-  public TipoContenido createTipoContenido() {
-    return new TipoContenido();
+  public TipoMetadatos createTipoMetadatos() {
+    return new TipoMetadatos();
   }
 
   /**
@@ -59,21 +51,19 @@ public class ObjectFactory {
   }
 
   /**
-   * Create an instance of {@link TipoMetadatos }
+   * Create an instance of {@link TipoContenido }
    * 
    */
-  public TipoMetadatos createTipoMetadatos() {
-    return new TipoMetadatos();
+  public TipoContenido createTipoContenido() {
+    return new TipoContenido();
   }
 
   /**
-   * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumento }{@code >}}
+   * Create an instance of {@link TipoDocumento }
    * 
    */
-  @XmlElementDecl(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento",
-      name = "documento")
-  public JAXBElement<TipoDocumento> createDocumento(TipoDocumento value) {
-    return new JAXBElement<TipoDocumento>(_Documento_QNAME, TipoDocumento.class, null, value);
+  public TipoDocumento createTipoDocumento() {
+    return new TipoDocumento();
   }
 
   /**
@@ -84,6 +74,16 @@ public class ObjectFactory {
       name = "metadatos")
   public JAXBElement<TipoMetadatos> createMetadatos(TipoMetadatos value) {
     return new JAXBElement<TipoMetadatos>(_Metadatos_QNAME, TipoMetadatos.class, null, value);
+  }
+
+  /**
+   * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumento }{@code >}}
+   * 
+   */
+  @XmlElementDecl(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento",
+      name = "documento")
+  public JAXBElement<TipoDocumento> createDocumento(TipoDocumento value) {
+    return new JAXBElement<TipoDocumento>(_Documento_QNAME, TipoDocumento.class, null, value);
   }
 
   /**
