@@ -20,10 +20,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-  private final static QName _Metadatos_QNAME =
-      new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos", "metadatos");
   private final static QName _Documento_QNAME =
       new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento", "documento");
+  private final static QName _Metadatos_QNAME =
+      new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos", "metadatos");
   private final static QName _Contenido_QNAME =
       new QName("https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/contenido", "contenido");
 
@@ -33,14 +33,6 @@ public class ObjectFactory {
    * 
    */
   public ObjectFactory() {}
-
-  /**
-   * Create an instance of {@link TipoMetadatos }
-   * 
-   */
-  public TipoMetadatos createTipoMetadatos() {
-    return new TipoMetadatos();
-  }
 
   /**
    * Create an instance of {@link TipoEstadoElaboracion }
@@ -67,13 +59,11 @@ public class ObjectFactory {
   }
 
   /**
-   * Create an instance of {@link JAXBElement }{@code <}{@link TipoMetadatos }{@code >}}
+   * Create an instance of {@link TipoMetadatos }
    * 
    */
-  @XmlElementDecl(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos",
-      name = "metadatos")
-  public JAXBElement<TipoMetadatos> createMetadatos(TipoMetadatos value) {
-    return new JAXBElement<TipoMetadatos>(_Metadatos_QNAME, TipoMetadatos.class, null, value);
+  public TipoMetadatos createTipoMetadatos() {
+    return new TipoMetadatos();
   }
 
   /**
@@ -84,6 +74,16 @@ public class ObjectFactory {
       name = "documento")
   public JAXBElement<TipoDocumento> createDocumento(TipoDocumento value) {
     return new JAXBElement<TipoDocumento>(_Documento_QNAME, TipoDocumento.class, null, value);
+  }
+
+  /**
+   * Create an instance of {@link JAXBElement }{@code <}{@link TipoMetadatos }{@code >}}
+   * 
+   */
+  @XmlElementDecl(namespace = "https://ssweb.seap.minhap.es/Eeutil/XSD/v1.0/documento/metadatos",
+      name = "metadatos")
+  public JAXBElement<TipoMetadatos> createMetadatos(TipoMetadatos value) {
+    return new JAXBElement<TipoMetadatos>(_Metadatos_QNAME, TipoMetadatos.class, null, value);
   }
 
   /**
