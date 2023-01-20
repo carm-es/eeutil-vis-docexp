@@ -9,7 +9,7 @@
   <parent>
     <groupId>es.carm.eeutil</groupId>
     <artifactId>vis-docexp-mvn-base-wrapper</artifactId>
-    <version>4.2.0-CARM.4</version>
+    <version>4.2.0-CARM.5-SNAPSHOT</version>
     <relativePath>../..</relativePath>
   </parent>
 

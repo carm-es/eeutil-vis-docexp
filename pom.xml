@@ -4,7 +4,7 @@
 
   <groupId>es.carm.eeutil</groupId>
   <artifactId>vis-docexp-mvn-base-wrapper</artifactId>
-  <version>4.2.0-CARM.4</version>
+  <version>4.2.0-CARM.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>eeutil-vis-docexp</name>
@@ -21,7 +21,7 @@
     <connection>scm:git:https://github.com/carm-es/eeutil-vis-docexp.git</connection>
     <developerConnection>scm:git:[push=]https://github.com/carm-es/eeutil-vis-docexp.git[fetch=]https://github.com/carm-es/eeutil-vis-docexp.git</developerConnection>
     <url>https://github.com/carm-es/eeutil-vis-docexp.git</url>
-    <tag>v4.2.0-CARM.4</tag>
+    <tag>HEAD</tag>
   </scm>
   <properties>
     <version.java>1.8</version.java>
