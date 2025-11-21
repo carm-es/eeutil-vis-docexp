@@ -26,19 +26,19 @@ public class ObjectFactory {
   public ObjectFactory() {}
 
   /**
-   * Create an instance of {@link MetadatoAdicional }
-   * 
-   */
-  public MetadatoAdicional createMetadatoAdicional() {
-    return new MetadatoAdicional();
-  }
-
-  /**
    * Create an instance of {@link TipoMetadatosAdicionales }
    * 
    */
   public TipoMetadatosAdicionales createTipoMetadatosAdicionales() {
     return new TipoMetadatosAdicionales();
+  }
+
+  /**
+   * Create an instance of {@link MetadatoAdicional }
+   * 
+   */
+  public MetadatoAdicional createMetadatoAdicional() {
+    return new MetadatoAdicional();
   }
 
 }

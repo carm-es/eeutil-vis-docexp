@@ -35,22 +35,6 @@ public class ObjectFactory {
   public ObjectFactory() {}
 
   /**
-   * Create an instance of {@link TipoEstadoElaboracion }
-   * 
-   */
-  public TipoEstadoElaboracion createTipoEstadoElaboracion() {
-    return new TipoEstadoElaboracion();
-  }
-
-  /**
-   * Create an instance of {@link TipoContenido }
-   * 
-   */
-  public TipoContenido createTipoContenido() {
-    return new TipoContenido();
-  }
-
-  /**
    * Create an instance of {@link TipoDocumento }
    * 
    */
@@ -64,6 +48,22 @@ public class ObjectFactory {
    */
   public TipoMetadatos createTipoMetadatos() {
     return new TipoMetadatos();
+  }
+
+  /**
+   * Create an instance of {@link TipoEstadoElaboracion }
+   * 
+   */
+  public TipoEstadoElaboracion createTipoEstadoElaboracion() {
+    return new TipoEstadoElaboracion();
+  }
+
+  /**
+   * Create an instance of {@link TipoContenido }
+   * 
+   */
+  public TipoContenido createTipoContenido() {
+    return new TipoContenido();
   }
 
   /**
