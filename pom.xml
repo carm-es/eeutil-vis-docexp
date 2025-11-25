@@ -8,6 +8,7 @@
   <packaging>pom</packaging>
 
   <name>eeutil-vis-docexp</name>
+  <description>Componente de las Eeutils de la AGE, que llama a OpenOffice</description>
   <inceptionYear>2020</inceptionYear>
 
   <licenses>
