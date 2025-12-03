@@ -35,14 +35,6 @@ public class ObjectFactory {
   public ObjectFactory() {}
 
   /**
-   * Create an instance of {@link TipoDocumento }
-   * 
-   */
-  public TipoDocumento createTipoDocumento() {
-    return new TipoDocumento();
-  }
-
-  /**
    * Create an instance of {@link TipoMetadatos }
    * 
    */
@@ -56,6 +48,14 @@ public class ObjectFactory {
    */
   public TipoEstadoElaboracion createTipoEstadoElaboracion() {
     return new TipoEstadoElaboracion();
+  }
+
+  /**
+   * Create an instance of {@link TipoDocumento }
+   * 
+   */
+  public TipoDocumento createTipoDocumento() {
+    return new TipoDocumento();
   }
 
   /**

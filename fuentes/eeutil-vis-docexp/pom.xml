@@ -58,6 +58,12 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.21</version>
+      <exclusions>
+      	<exclusion>
+      		<groupId>log4j</groupId>
+      		<artifactId>*</artifactId>
+      	</exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
@@ -74,6 +80,12 @@
       <groupId>es.gob.aapp.eeutil</groupId>
       <artifactId>eeutil-pdf-conversion</artifactId>
       <version>${version.eeutils-shared}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>es.gob.aapp.eeutil</groupId>

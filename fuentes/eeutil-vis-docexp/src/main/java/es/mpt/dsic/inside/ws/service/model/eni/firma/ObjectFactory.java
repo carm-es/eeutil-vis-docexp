@@ -39,6 +39,14 @@ public class ObjectFactory {
   }
 
   /**
+   * Create an instance of {@link TipoFirmasElectronicas.ContenidoFirma.CSV }
+   * 
+   */
+  public TipoFirmasElectronicas.ContenidoFirma.CSV createTipoFirmasElectronicasContenidoFirmaCSV() {
+    return new TipoFirmasElectronicas.ContenidoFirma.CSV();
+  }
+
+  /**
    * Create an instance of {@link TipoFirmasElectronicas }
    * 
    */
@@ -52,14 +60,6 @@ public class ObjectFactory {
    */
   public Firmas createFirmas() {
     return new Firmas();
-  }
-
-  /**
-   * Create an instance of {@link TipoFirmasElectronicas.ContenidoFirma.CSV }
-   * 
-   */
-  public TipoFirmasElectronicas.ContenidoFirma.CSV createTipoFirmasElectronicasContenidoFirmaCSV() {
-    return new TipoFirmasElectronicas.ContenidoFirma.CSV();
   }
 
   /**
