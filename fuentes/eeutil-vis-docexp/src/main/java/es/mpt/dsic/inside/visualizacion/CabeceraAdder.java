@@ -1,42 +1,45 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.visualizacion;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-// import com.lowagie.text.BaseColor;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
-import es.mpt.dsic.inside.visualizacion.exception.ContentNotAddedException;
+
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfReader;
+import com.lowagie.text.pdf.PdfStamper;
+import com.lowagie.text.pdf.PdfWriter;
+
+import es.mpt.dsic.inside.utils.exception.EeutilException;
 
 public class CabeceraAdder {
 
 
-  protected final static Log logger = LogFactory.getLog(CabeceraAdder.class);
+  protected static final Log logger = LogFactory.getLog(CabeceraAdder.class);
 
 
-  // SEPARACIÓN DEL BORDE DE LA IZQUIERDA
-  protected static float DEFAULT_SEP_EJE_X = 30;
-  // SEPARACIÓN DEL BORDE DE ARRIBA
-  protected static float DEFAULT_SEP_EJE_Y = 24;
+  // SEPARACIO�N DEL BORDE DE LA IZQUIERDA
+  protected static final float DEFAULT_SEP_EJE_X = 30;
+  // SEPARACIO�N DEL BORDE DE ARRIBA
+  protected static final float DEFAULT_SEP_EJE_Y = 24;
 
   private static float widthTableHor = 727f;
   private static float widthTableVer = 480f;
 
-  private static float[] relativeWidthsHor = {0.8f, 3.2f, 6f};
-  private static float[] relativeWidthsVer = {1f, 2f, 5f};
+  private static float[] relativeWidthsHor = {1.6f, 3.2f, 6f};
+  private static float[] relativeWidthsVer = {2f, 2f, 5f};
 
   private String tPagina;
 
@@ -97,64 +100,91 @@ public class CabeceraAdder {
   // valorEntidad, String nombreDocumento, String[] lineasOrganismo) throws ContentNotAddedException
   // {
   public byte[] addCabecera(byte[] pdfEntrada, String rutaLogo, String descripcion1,
-      String descripcion2, String[] lineasOrganismo) throws ContentNotAddedException {
+      String descripcion2, String[] lineasOrganismo) throws EeutilException {
 
     byte[] bytesSalida = null;
 
-    ByteArrayInputStream bis = new ByteArrayInputStream(pdfEntrada);
-    ByteArrayOutputStream salida = new ByteArrayOutputStream();
-    try {
-      PdfReader reader = new PdfReader(bis);
-      salida = new ByteArrayOutputStream();
-      PdfStamper stamp = new PdfStamper(reader, salida);
-      stamp.setFullCompression();
-      stamp.setFormFlattening(false);
-      int n = reader.getNumberOfPages();
 
-      PdfPTableDesigner designerHorizontal =
-          new CabeceraVisualizacionIndiceDesigner(rutaLogo, widthTableHor, relativeWidthsHor);
-      PdfPTableDesigner designerVertical =
-          new CabeceraVisualizacionIndiceDesigner(rutaLogo, widthTableVer, relativeWidthsVer);
 
-      for (int i = 1; i <= n; i++) {
+    PdfStamper stamp = null;
 
-        // PdfPTableDesigner des = new CabeceraVisualizacionIndiceDesigner(rutaLogo, widthTable,
-        // relativeWidths);
+    try (ByteArrayInputStream bis = new ByteArrayInputStream(pdfEntrada);
+        ByteArrayOutputStream salida = new ByteArrayOutputStream();) {
 
-        // String[] lineasDerecha = {"P�gina " + i, "Expediente Electr�nico: " + nombreExpediente,
-        // "Documento �ndice"};
-        String[] lineasDerecha = {tPagina + " " + i, descripcion1, descripcion2};
-        Object[] params = {rutaLogo, lineasOrganismo, lineasDerecha};
-        PdfPTable cabecera;
-        // Vertical
-        if (stamp.getImportedPage(reader, i).getHeight() > stamp.getImportedPage(reader, i)
-            .getWidth()) {
-          cabecera = designerVertical.designTable(params);
-          // Horizontal
-        } else {
-          cabecera = designerHorizontal.designTable(params);
+      PdfReader reader = null;
+      try {
+
+        reader = new PdfReader(bis);
+        stamp = new PdfStamper(reader, salida, PdfWriter.VERSION_1_7);
+        stamp.setFullCompression();
+        stamp.setFormFlattening(true);
+        stamp.setFreeTextFlattening(false);
+        int n = reader.getNumberOfPages();
+
+        PdfPTableDesigner designerHorizontal =
+            new CabeceraVisualizacionIndiceDesigner(widthTableHor, relativeWidthsHor);
+        PdfPTableDesigner designerVertical =
+            new CabeceraVisualizacionIndiceDesigner(widthTableVer, relativeWidthsVer);
+
+        for (int i = 1; i <= n; i++) {
+
+          // PdfPTableDesigner des = new CabeceraVisualizacionIndiceDesigner(rutaLogo, widthTable,
+          // relativeWidths);
+
+          // String[] lineasDerecha = {"P�gina " + i, "Expediente Electr�nico: " + nombreExpediente,
+          // "Documento �ndice"};
+          String[] lineasDerecha = {tPagina + " " + i, descripcion1, descripcion2};
+          Object[] params = {rutaLogo, lineasOrganismo, lineasDerecha};
+          PdfPTable cabecera;
+          // Vertical
+          if (stamp.getImportedPage(reader, i).getHeight() > stamp.getImportedPage(reader, i)
+              .getWidth()) {
+            cabecera = designerVertical.designTable(params);
+            // Horizontal
+          } else {
+            cabecera = designerHorizontal.designTable(params);
+          }
+
+          cabecera.writeSelectedRows(0, -1, tablaSepEjeX,
+              stamp.getImportedPage(reader, i).getHeight() - tablaSepEjeY, stamp.getOverContent(i));
         }
 
-        cabecera.writeSelectedRows(0, -1, tablaSepEjeX,
-            stamp.getImportedPage(reader, i).getHeight() - tablaSepEjeY, stamp.getOverContent(i));
+      } catch (NoClassDefFoundError e) {
+
+        if (e.getMessage().contains("bouncycastle")) {
+
+          // logger.error("El fichero esta protegido y no ha podido abrirse.");
+          throw new EeutilException(
+              "El fichero esta protegido y no ha podido abrirse." + e.getMessage(), e);
+
+        } else {
+          // logger.error(e.getMessage());
+          throw new EeutilException(e.getMessage(), e);
+        }
+
+      } catch (Exception e) {
+        // logger.error("No se puede agregar la cabecera " + e.getMessage(), e);
+        throw new EeutilException("No se puede agregar la cabecera " + e.getMessage(), e);
+
+      } finally {
+        if (stamp != null)
+          stamp.close();
+
+        if (reader != null)
+          reader.close();
       }
 
-      stamp.close();
-      reader.close();
-
+      // bytesSalida = Arrays.copyOf(salida.toByteArray(),salida.toByteArray().length);
       bytesSalida = salida.toByteArray();
 
-      salida.close();
+      return bytesSalida;
 
     } catch (Exception e) {
-      logger.error("No se puede agregar la cabecera " + e.getMessage(), e);
-      throw new ContentNotAddedException("No se puede agregar la cabecera " + e.getMessage());
+      // logger.error("No se puede agregar la cabecera " + e.getMessage(), e);
+      throw new EeutilException("No se puede agregar la cabecera " + e.getMessage(), e);
 
     }
 
-
-
-    return bytesSalida;
 
   }
 

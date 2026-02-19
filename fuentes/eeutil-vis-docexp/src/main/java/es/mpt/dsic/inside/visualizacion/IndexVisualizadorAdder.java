@@ -1,37 +1,37 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.visualizacion;
 
+import java.awt.Color;
 import java.util.List;
 import java.util.Map.Entry;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.BaseFont;
-// import com.lowagie.text.Font.FontFamily;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-// import es.mpt.dsic.inside.ws.service.foliado.FoliadoItem;
-// import es.mpt.dsic.inside.ws.service.foliado.IndexAdder;
-import es.mpt.dsic.inside.visualizacion.exception.ContentNotAddedException;
-// import com.lowagie.text.BaseColor;
+
+import com.lowagie.text.Chunk;
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+
+import es.mpt.dsic.inside.utils.exception.EeutilException;
 
 
 public class IndexVisualizadorAdder {
@@ -44,8 +44,8 @@ public class IndexVisualizadorAdder {
   protected Font fontTitle;
   protected Font fontBase;
   protected int alignmentTitle;
-  // protected BaseColor backgroundTitle;
-  protected BaseColor backgroundTitle;
+  // protected Color backgroundTitle;
+  protected Color backgroundTitle;
   protected float paddingTopTitle;
   protected float paddingLeftTitle;
 
@@ -55,22 +55,22 @@ public class IndexVisualizadorAdder {
 
   public static int DEFAULT_NUM_FILAS_HOJA = 30;
 
-  public static String DEFAULT_TITLE = "VISUALIZACI�N DEL �NDICE DE UN EXPEDIENTE";
+  public static final String DEFAULT_TITLE = "VISUALIZACI�N DEL �NDICE DE UN EXPEDIENTE";
   // public static Font DEFAULT_FONT_TITLE = new Font(FontFamily.HELVETICA, 18);
-  public static Font DEFAULT_FONT_TITLE = FontFactory.getFont(BaseFont.HELVETICA, 18);
+  public static final Font DEFAULT_FONT_TITLE = FontFactory.getFont(BaseFont.HELVETICA, 18);
   // public static Font DEFAULT_FONT_BASE = new Font(FontFamily.HELVETICA, 12);
-  public static Font DEFAULT_FONT_BASE = FontFactory.getFont(BaseFont.HELVETICA, 12);
-  public static int DEFAULT_ALIGNMENT_TITLE = Element.ALIGN_LEFT;
-  // public static BaseColor DEFAULT_BACKGROUND_TITLE = BaseColor.WHITE;
-  public static BaseColor DEFAULT_BACKGROUND_TITLE = BaseColor.WHITE;
+  public static final Font DEFAULT_FONT_BASE = FontFactory.getFont(BaseFont.HELVETICA, 12);
+  public static final int DEFAULT_ALIGNMENT_TITLE = Element.ALIGN_LEFT;
+  // public static Color DEFAULT_BACKGROUND_TITLE = Color.WHITE;
+  public static final Color DEFAULT_BACKGROUND_TITLE = Color.WHITE;
 
 
-  public static float DEFAULT_PADDING_TOP_TITLE = 35f;
-  public static float DEFAULT_PADDING_LEFT_TITLE = 45f;
+  public static final float DEFAULT_PADDING_TOP_TITLE = 35f;
+  public static final float DEFAULT_PADDING_LEFT_TITLE = 45f;
 
-  public static float DEFAULT_WIDTH_PERCENTAGE = 100f;
+  public static final float DEFAULT_WIDTH_PERCENTAGE = 100f;
 
-  public static int DEFAULT_ALIGNMENT = Element.ALIGN_LEFT;
+  public static final int DEFAULT_ALIGNMENT = Element.ALIGN_LEFT;
 
   public IndexVisualizadorAdder() {
 
@@ -126,11 +126,11 @@ public class IndexVisualizadorAdder {
     this.alignmentTitle = alignmentTitle;
   }
 
-  public BaseColor getBackgroundTitle() {
+  public Color getBackgroundTitle() {
     return backgroundTitle;
   }
 
-  public void setBackgroundTitle(BaseColor backgroundTitle) {
+  public void setBackgroundTitle(Color backgroundTitle) {
     this.backgroundTitle = backgroundTitle;
   }
 
@@ -151,7 +151,7 @@ public class IndexVisualizadorAdder {
   }
 
   public void addContent(List<VisualizacionItem> listaItems, Document doc, PdfWriter pw)
-      throws ContentNotAddedException {
+      throws EeutilException {
 
     try {
       doc.newPage();
@@ -161,28 +161,31 @@ public class IndexVisualizadorAdder {
 
       printIndex(listaItems, doc, pw);
 
-    } catch (DocumentException e) {
-      logger.error("No se puede índice de la visualización " + e.getMessage(), e);
-      throw new ContentNotAddedException("No se puede índice de la visualización ", e);
+    } catch (EeutilException e) {
+      // logger.error("No se puede indice de la visualizacion " + e.getMessage(), e);
+      throw new EeutilException("No se puede indice de la visualizacion " + e.getMessage(), e);
+    } catch (Exception e) {
+      // logger.error("No se puede indice de la visualizacion " + e.getMessage(), e);
+      throw new EeutilException("No se puede indice de la visualizacion " + e.getMessage(), e);
     }
 
   }
 
   /**
-   * Pinta el título
+   * Pinta el titulo
    * 
    * @param doc Documento abierto
    * @param pw PdfWriter del documento abierto
-   * @throws DocumentException si no se puede pintar el título
+   * @throws DocumentException si no se puede pintar el titulo
    */
 
-  protected void printTitle(Document doc, PdfWriter pw) throws DocumentException {
+  protected void printTitle(Document doc, PdfWriter pw) throws EeutilException {
 
     PdfPTable table = new PdfPTable(1);
     table.setWidthPercentage(widthPercentage);
 
     PdfPCell cell = new PdfPCell();
-    cell.setBorder(PdfPCell.NO_BORDER);
+    cell.setBorder(Rectangle.NO_BORDER);
     cell.setBackgroundColor(backgroundTitle);
     cell.setPaddingTop(paddingTopTitle);
     cell.setPaddingLeft(paddingLeftTitle);
@@ -197,14 +200,14 @@ public class IndexVisualizadorAdder {
       doc.add(table);
       doc.add(Chunk.NEWLINE);
 
-    } catch (DocumentException e) {
-      logger.error("No se puede imprimir el tÃ­tulo del Ã­ndice " + e.getMessage());
-      throw e;
+    } catch (Exception e) {
+      // logger.error ("No se puede imprimir el tÃ­tulo del Ã­ndice " + e.getMessage());
+      throw new EeutilException("No se puede imprimir el titulo del indice " + e.getMessage(), e);
     }
   }
 
   /**
-   * Pinta el índice
+   * Pinta el indice
    * 
    * @param listaItems Lista de elementos del documento
    * @param doc Documento abierto
@@ -212,7 +215,7 @@ public class IndexVisualizadorAdder {
    * @throws DocumentException si no se puede pintar.
    */
   protected void printIndex(List<VisualizacionItem> listaItems, Document doc, PdfWriter pw)
-      throws DocumentException {
+      throws EeutilException {
 
     int filas = 1;
 
@@ -228,7 +231,7 @@ public class IndexVisualizadorAdder {
 
       /***************
        * TAMAÑO DE FUENTE DEPENDIENDO DE LA PROFUNDIDAD Y COLOR DE LAS FILAS INTERCALADO // El color
-       * de fila BaseColor colorCell = backgroundRows [i % backgroundRows.length] ;
+       * de fila Color colorCell = backgroundRows [i % backgroundRows.length] ;
        * 
        * // Fuente de la lÃ­nea, mÃ¡s pequeÃ±a cuanto mayor sea la profundidad del elemento en el
        * Ã­ndice (subapartados letra mÃ¡s pequeÃ±a). Font font = new Font (fontBase.getFamily(),
@@ -238,10 +241,10 @@ public class IndexVisualizadorAdder {
        * DEPENDIENDO DE LA PROFUNDIDAD Y COLOR DE LAS FILAS INTERCALADO
        **********************/
 
-      PdfPTable tablaItem = tablaItem(item, fontBase, BaseColor.WHITE);
+      PdfPTable tablaItem = tablaItem(item, fontBase, Color.WHITE);
       filas += tablaItem.getRows().size();
 
-      PdfPTable tablaPropiedades = tablaPropiedades(item, fontBase, BaseColor.WHITE);
+      PdfPTable tablaPropiedades = tablaPropiedades(item, fontBase, Color.WHITE);
 
       // Si es la primera fila, dejamos un espacio antes.
       if (i == 0) {
@@ -254,8 +257,9 @@ public class IndexVisualizadorAdder {
           filas += tablaPropiedades.getRows().size();
         }
       } catch (DocumentException de) {
-        logger.error("No se puede aÃ±adir la fila " + item.getNombre());
-        throw de;
+        // logger.error("No se puede anadir la fila " + item.getNombre());
+        throw new EeutilException(
+            "No se puede anadir la fila " + item.getNombre() + " " + de.getMessage(), de);
       }
 
 
@@ -274,17 +278,17 @@ public class IndexVisualizadorAdder {
    * @return tabla que se corresponde con una fila del Ã­ndice
    */
   protected PdfPTable tablaItem(final VisualizacionItem item, final Font font,
-      final BaseColor bgColor) throws DocumentException {
+      final Color bgColor) {
     PdfPTable table = new PdfPTable(1);
     table.setWidthPercentage(widthPercentage);
     table.setHorizontalAlignment(alignment);
 
     Paragraph par = new Paragraph(item.getNombre(), font);
-    par.setIndentationLeft(20 * (item.getProfundidad() - 1));
+    par.setIndentationLeft(20 * (float) (item.getProfundidad() - 1));
     par.setAlignment(Element.ALIGN_LEFT);
     PdfPCell celda = new PdfPCell();
     celda.setBackgroundColor(bgColor);
-    celda.setBorder(PdfPCell.NO_BORDER);
+    celda.setBorder(Rectangle.NO_BORDER);
     celda.addElement(par);
     table.addCell(celda);
 
@@ -302,7 +306,7 @@ public class IndexVisualizadorAdder {
    * @throws DocumentException
    */
   protected PdfPTable tablaPropiedades(final VisualizacionItem item, final Font font,
-      final BaseColor bgColor) throws DocumentException {
+      final Color bgColor) {
     PdfPTable tabla = null;
 
     if (item.getPropiedades() != null) {
@@ -310,16 +314,16 @@ public class IndexVisualizadorAdder {
       for (Entry<String, String> propiedad : item.getPropiedades()) {
         PdfPCell clave = new PdfPCell();
         clave.setBackgroundColor(bgColor);
-        clave.setBorder(PdfPCell.NO_BORDER);
+        clave.setBorder(Rectangle.NO_BORDER);
         Paragraph paragClave = new Paragraph(propiedad.getKey(), font);
         paragClave.setAlignment(Element.ALIGN_LEFT);
-        paragClave.setIndentationLeft(20 * (item.getProfundidad() - 1) + 20);
+        paragClave.setIndentationLeft((float) (20 * (item.getProfundidad() - 1)) + 20);
         clave.addElement(paragClave);
         tabla.addCell(clave);
 
         PdfPCell valor = new PdfPCell();
         valor.setBackgroundColor(bgColor);
-        valor.setBorder(PdfPCell.NO_BORDER);
+        valor.setBorder(Rectangle.NO_BORDER);
         Paragraph paragValor = new Paragraph(propiedad.getValue(), font);
         paragClave.setAlignment(Element.ALIGN_LEFT);
         valor.addElement(paragValor);

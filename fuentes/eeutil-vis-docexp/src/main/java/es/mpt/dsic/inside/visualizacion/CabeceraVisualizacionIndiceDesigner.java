@@ -1,29 +1,31 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.visualizacion;
 
 import java.util.Arrays;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.BaseFont;
-// import com.lowagie.text.Font.FontFamily;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import es.mpt.dsic.inside.visualizacion.exception.ContentNotAddedException;
+
+import com.lowagie.text.Chunk;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.Image;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+
+import es.mpt.dsic.inside.utils.exception.EeutilException;
 
 public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
 
@@ -37,8 +39,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
 
   }
 
-  public CabeceraVisualizacionIndiceDesigner(String rutaLogo, float widthTabla,
-      float[] relativeWidths) {
+  public CabeceraVisualizacionIndiceDesigner(float widthTabla, float[] relativeWidths) {
 
     this.widthTabla = widthTabla;
     this.relativeWidths = relativeWidths;
@@ -85,21 +86,21 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
    * params[0] = ruta del logo params[1] = String[] con l�neas del nombre del organismo params[2] =
    * String[] l�neas de la derecha
    */
-  public PdfPTable designTable(Object[] params) throws ContentNotAddedException {
+  public PdfPTable designTable(Object[] params) throws EeutilException {
     if (params.length != 3) {
-      throw new ContentNotAddedException(
+      throw new EeutilException("El numero de argumentos tiene que ser 3:",
           new IllegalArgumentException("El n�mero de argumentos tiene que ser 3:"));
     }
     if (!(params[0] instanceof String)) {
-      throw new ContentNotAddedException(
+      throw new EeutilException("El primer argumento debe ser un String",
           new IllegalArgumentException("El primer argumento debe ser un String"));
     }
     if (!(params[1] instanceof String[])) {
-      throw new ContentNotAddedException(
+      throw new EeutilException("El segundo argumento debe ser un array de Strings",
           new IllegalArgumentException("El segundo argumento debe ser un array de Strings"));
     }
     if (!(params[2] instanceof String[])) {
-      throw new ContentNotAddedException(
+      throw new EeutilException("El tercer argumento debe ser un array de Strings",
           new IllegalArgumentException("El tercer argumento debe ser un array de Strings"));
     }
 
@@ -109,15 +110,16 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
       // tabla.setWidths(new float[]{0.8f, 3.2f, 6f});
       tabla.setWidths(relativeWidths);
     } catch (DocumentException e) {
-      throw new ContentNotAddedException("No se puede dibujar la tabla ", e);
+      throw new EeutilException("No se puede dibujar la tabla ", e);
     }
 
     Image img = null;
     try {
       img = Image.getInstance((String) params[0]);
     } catch (Exception e) {
-      throw new ContentNotAddedException(
-          "No se puede obtener la imagen a partir de: " + (String) params[0], e);
+      throw new EeutilException(
+          "No se puede obtener la imagen a partir de: " + (String) params[0] + " " + e.getMessage(),
+          e);
     }
     tabla.addCell(celdaLogo(img));
     tabla.addCell(celdaTextoLogo((String[]) params[1]));
@@ -150,7 +152,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
   private PdfPCell celdaAbajo(String texto, float borderTop) {
     PdfPCell cellTxt = new PdfPCell();
     cellTxt.setColspan(3);
-    cellTxt.setBorder(PdfPCell.NO_BORDER);
+    cellTxt.setBorder(Rectangle.NO_BORDER);
     if (borderTop != 0.0f) {
       cellTxt.setBorderWidthTop(borderTop);
       // cellTxt.setBorderWidthTop(0.5f);
@@ -165,7 +167,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
 
   private PdfPCell celdaLogo(Image img) {
     PdfPCell cellImg = new PdfPCell();
-    cellImg.setBorder(PdfPCell.NO_BORDER);
+    cellImg.setBorder(Rectangle.NO_BORDER);
     img.scalePercent(25);
     cellImg.addElement(img);
     return cellImg;
@@ -173,7 +175,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
 
   private PdfPCell celdaTextoLogo(String[] lineasLogo) {
     PdfPCell cellTxt = new PdfPCell();
-    cellTxt.setBorder(PdfPCell.NO_BORDER);
+    cellTxt.setBorder(Rectangle.NO_BORDER);
     cellTxt.setPaddingTop(25f);
 
     Paragraph p = new Paragraph(construirTexto(lineasLogo), fontLineasLogo);
@@ -185,7 +187,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
   }
 
   private String construirTexto(String[] lineasLogo) {
-    StringBuffer sb = new StringBuffer("");
+    StringBuilder sb = new StringBuilder("");
     for (int i = 0; i < lineasLogo.length; i++) {
       sb.append(lineasLogo[i] + System.getProperty("line.separator"));
     }
@@ -197,7 +199,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
     PdfPTable table = new PdfPTable(1);
 
     PdfPCell cellTxt2 = new PdfPCell();
-    cellTxt2.setBorder(PdfPCell.NO_BORDER);
+    cellTxt2.setBorder(Rectangle.NO_BORDER);
     // cellTxt.setPaddingTop(10f);
     cellTxt2.addElement(Chunk.NEWLINE);
     table.addCell(cellTxt2);
@@ -205,7 +207,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
 
     for (String linea : lineasDerecha) {
       PdfPCell cellTxt = new PdfPCell();
-      cellTxt.setBorder(PdfPCell.NO_BORDER);
+      cellTxt.setBorder(Rectangle.NO_BORDER);
       // cellTxt.setPaddingTop(10f);
       Paragraph p = new Paragraph(linea, fontLineasDerecha);
       p.setAlignment(Element.ALIGN_RIGHT);
@@ -213,7 +215,7 @@ public class CabeceraVisualizacionIndiceDesigner implements PdfPTableDesigner {
       table.addCell(cellTxt);
     }
     PdfPCell celdaTabla = new PdfPCell(table);
-    celdaTabla.setBorder(PdfPCell.NO_BORDER);
+    celdaTabla.setBorder(Rectangle.NO_BORDER);
     return celdaTabla;
   }
 

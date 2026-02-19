@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2012-13 MINHAP, Gobierno de España
+<!-- Copyright (C) 2025, Gobierno de España
    This program is licensed and may be used, modified and redistributed under the terms
    of the European Public License (EUPL), either version 1.1 or (at your
    option) any later version as soon as they are approved by the European Commission.
@@ -9,53 +9,70 @@
    more details.
    You should have received a copy of the EUPL1.1 license
    along with this program; if not, you may find it at
-   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl --> 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+   http://joinup.ec.europa.eu/software/page/eupl/licence-eupl -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd			
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd			
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd			
-			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"> 
-    <!-- Propiedades de la visualizacion --> 
-    <bean id="visualizacionTextosPropertyConfigurer" class="es.mpt.dsic.inside.config.resources.EeutilConfigPropertyPlaceHolderConfigurer"> 
-        <property name="fichero" value="visualizacion.textos.properties" /> 
-    </bean> 
-    <!-- Propiedades de rutas --> 
-    <!-- bean id="visualizacionRutasPropertyConfigurer"
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<!-- Propiedades de la visualizacion -->
+	<bean id="visualizacionTextosPropertyConfigurer"
+		class="es.mpt.dsic.inside.config.resources.EeutilConfigPropertyPlaceHolderConfigurer">
+		<property name="fichero" value="visualizacion.textos.properties" />
+	</bean>
+	
+	<!-- Propiedades de rutas -->
+	<!-- bean id="visualizacionRutasPropertyConfigurer"
 		class="es.mpt.dsic.inside.config.resources.EeutilConfigPropertyPlaceHolderConfigurer">
 		<property name="fichero" value="visualizacion.path.properties" />
-	</bean--> 
-    <!-- BEAN DOCUMENTO --> 
-    <bean id="visualizacionDocumentoService" class="es.mpt.dsic.inside.visualizacion.service.impl.VisualizacionDocumentoServiceImpl"> 
-        <property name="indexVisualizadorAdder" ref="indexVisualizadorAdder" /> 
-        <property name="cabeceraAdder" ref="cabeceraAdder" /> 
-        <property name="pieAdder" ref="pieAdder" /> 
-        <property name="contentDocumentAdder" ref="contentDocumentAdder" /> 
-        <property name="tDocElectronico" value="${visualizacion.textos.documento.titulo}" /> 
-        <property name="tTipoFirma" value="${visualizacion.textos.documento.tipo.firma}" /> 
-        <property name="tFirmante" value="${visualizacion.textos.documento.firmante}" /> 
-        <property name="tFechaFirma" value="${visualizacion.textos.documento.fecha.firma}" /> 
-        <property name="tValorCsv" value="${visualizacion.textos.documento.valor.csv}" /> 
-        <property name="tRegulacionCsv" value="${visualizacion.textos.documento.regulacion.csv}" /> 
-        <property name="tVisualizacionDocElectronico" value="${visualizacion.textos.documento.cabecera}" /> 
-    </bean> 
-    <!-- BEAN EXPEDIENTE --> 
-    <bean id="visualizacionExpedienteService" class="es.mpt.dsic.inside.visualizacion.service.impl.VisualizacionExpedienteServiceImpl"> 
-        <property name="indexVisualizadorAdder" ref="indexVisualizadorAdder" /> 
-        <property name="cabeceraAdder" ref="cabeceraAdder" /> 
-        <property name="pieAdder" ref="pieAdder" /> 
-        <property name="tExpedienteElectronico" value="${visualizacion.textos.expediente.cabecera}" /> 
-        <property name="tDocIndice" value="${visualizacion.textos.documento.indice}" /> 
-    </bean> 
-    <!-- BEAN COMUNES --> 
-    <bean id="indexVisualizadorAdder" class="es.mpt.dsic.inside.visualizacion.IndexStandardVisualizadorAdder"> 
-        <property name="defaulTittle" value="${visualizacion.textos.expediente.indice}" /> 
-        <property name="defaultColumnsContent" value="${visualizacion.textos.expediente.cabecera},${visualizacion.textos.comunes.elemento},${visualizacion.textos.comunes.Hash}" /> 
-        <property name="defaultColumnsContentDocument" value="${visualizacion.textos.documento.tipo.firma},${visualizacion.textos.documento.firmante},${visualizacion.textos.documento.fecha.firma}" /> 
-    </bean> 
-    <bean id="cabeceraAdder" class="es.mpt.dsic.inside.visualizacion.CabeceraAdder"> 
-        <property name="tPagina" value="${visualizacion.textos.documento.pagina.texto}" /> 
-    </bean> 
-    <bean id="pieAdder" class="es.mpt.dsic.inside.visualizacion.PieAdder" /> 
-    <bean id="contentDocumentAdder" class="es.mpt.dsic.inside.visualizacion.ContentDocumentAdder" /> 
+	</bean-->
+	
+	<!-- BEAN DOCUMENTO -->
+	<bean id="visualizacionDocumentoService" class="es.mpt.dsic.inside.visualizacion.service.impl.VisualizacionDocumentoServiceImpl">
+		<property name="indexVisualizadorAdder" ref="indexVisualizadorAdder"/>
+		<property name="cabeceraAdder" ref="cabeceraAdder"/>
+		<property name="pieAdder" ref="pieAdder"/>
+		<property name="contentDocumentAdder" ref="contentDocumentAdder"/>
+		<property name="tDocElectronico" value="${visualizacion.textos.documento.titulo}"/>
+		<property name="tTipoFirma" value="${visualizacion.textos.documento.tipo.firma}"/>
+		<property name="tFirmante" value="${visualizacion.textos.documento.firmante}"/>
+		<property name="tFechaFirma" value="${visualizacion.textos.documento.fecha.firma}"/>
+		<property name="tValorCsv" value="${visualizacion.textos.documento.valor.csv}"/>
+		<property name="tRegulacionCsv" value="${visualizacion.textos.documento.regulacion.csv}"/>
+		<property name="tVisualizacionDocElectronico" value="${visualizacion.textos.documento.cabecera}"/>		
+	</bean>
+	
+	<!-- BEAN EXPEDIENTE -->
+	<bean id="visualizacionExpedienteService" class="es.mpt.dsic.inside.visualizacion.service.impl.VisualizacionExpedienteServiceImpl">
+		<property name="indexVisualizadorAdder" ref="indexVisualizadorAdder"/>
+		<property name="cabeceraAdder" ref="cabeceraAdder"/>
+		<property name="pieAdder" ref="pieAdder"/>
+		<property name="tExpedienteElectronico" value="${visualizacion.textos.expediente.cabecera}"/>
+		<property name="tDocIndice" value="${visualizacion.textos.documento.indice}"/>		
+	</bean>
+	
+	<!-- BEAN COMUNES -->
+	<bean id="indexVisualizadorAdder" class="es.mpt.dsic.inside.visualizacion.IndexStandardVisualizadorAdder">
+		<property name="defaulTittle" value="${visualizacion.textos.expediente.indice}"/>
+		<property name="defaultColumnsContent" value="${visualizacion.textos.expediente.cabecera},${visualizacion.textos.comunes.elemento},${visualizacion.textos.comunes.Hash}"/>
+		<property name="defaultColumnsContentDocument" value="${visualizacion.textos.documento.tipo.firma},${visualizacion.textos.documento.firmante},${visualizacion.textos.documento.fecha.firma}"/>
+	</bean>
+	
+	<bean id="cabeceraAdder" class="es.mpt.dsic.inside.visualizacion.CabeceraAdder">
+		<property name="tPagina" value="${visualizacion.textos.documento.pagina.texto}"/>
+	</bean>
+	
+	<bean id="pieAdder" class="es.mpt.dsic.inside.visualizacion.PieAdder"/>
+	
+	<bean id="contentDocumentAdder" class="es.mpt.dsic.inside.visualizacion.ContentDocumentAdder"/>
+	
 </beans>
