@@ -99,6 +99,26 @@
       <scope>runtime</scope>
     </dependency>
     <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <version>${logging.log4j}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+      <version>${logging.log4j}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>3.2.10.RELEASE</version>
+    </dependency>  
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.24</version>
+    </dependency>
+    <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
       <version>1.1</version>
@@ -128,6 +148,18 @@
           <groupId>org.ow2.asm</groupId>
           <artifactId>asm-debug-all</artifactId>
         </exclusion>
+        <exclusion>
+          <artifactId>slf4j-api</artifactId>
+          <groupId>*</groupId>
+        </exclusion>
+	<exclusion>
+	  <groupId>log4j</groupId>
+	  <artifactId>*</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>org.graylog2</groupId>
+	  <artifactId>*</artifactId>
+	</exclusion>
       </exclusions>
     </dependency>
     <dependency>
@@ -148,8 +180,16 @@
       <exclusions>
         <exclusion>
           <artifactId>slf4j-api</artifactId>
-          <groupId>org.slf4j</groupId>
+          <groupId>*</groupId>
         </exclusion>
+	<exclusion>
+	  <groupId>log4j</groupId>
+	  <artifactId>*</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>org.graylog2</groupId>
+	  <artifactId>*</artifactId>
+	</exclusion>
         <exclusion>
           <groupId>stax</groupId>
           <artifactId>stax-api</artifactId>
