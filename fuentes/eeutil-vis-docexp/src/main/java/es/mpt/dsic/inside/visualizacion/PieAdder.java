@@ -1,39 +1,42 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.visualizacion;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-// import com.lowagie.text.BaseColor;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfStamper;
-import es.mpt.dsic.inside.visualizacion.exception.ContentNotAddedException;
+
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfReader;
+import com.lowagie.text.pdf.PdfStamper;
+import com.lowagie.text.pdf.PdfWriter;
+
+import es.mpt.dsic.inside.utils.exception.EeutilException;
 
 public class PieAdder {
 
-
-  protected final static Log logger = LogFactory.getLog(PieAdder.class);
-
+  protected static final Log logger = LogFactory.getLog(PieAdder.class);
 
   // SEPARACIÓN DEL BORDE DE LA IZQUIERDA
-  protected static float DEFAULT_SEP_EJE_X = 30;
+  protected static final float DEFAULT_SEP_EJE_X = 30;
   // SEPARACIÓN DEL BORDE DE ARRIBA
-  protected static float DEFAULT_SEP_EJE_Y = 24;
+  protected static final float DEFAULT_SEP_EJE_Y = 24;
 
-  private static float widthTableHor = 727f;
-  private static float widthTableVer = 480f;
+  private static final float WIDTHTABLEHOR = 727f;
+  private static final float WIDTHTABLEVER = 480f;
 
   /*
    * private static float[] relativeWidthsHor = {0.8f, 3.2f, 6f}; private static float[]
@@ -41,7 +44,6 @@ public class PieAdder {
    * 
    * private String tPagina;
    */
-
 
   // Indica el desplazamiento, con respecto al borde de la derecha.
   protected float tablaSepEjeX;
@@ -87,29 +89,31 @@ public class PieAdder {
 
   }
 
-
-
-  // public byte[] addCabecera (byte[] pdfEntrada, String rutaLogo, String nombreExpediente,
-  // String[] lineasOrganismo) throws ContentNotAddedException {
-  // public byte[] addCabecera (byte[] pdfEntrada, String rutaLogo, String nombreEntidad, String
-  // valorEntidad, String nombreDocumento, String[] lineasOrganismo) throws ContentNotAddedException
-  // {
-  public byte[] addPie(byte[] pdfEntrada, String texto) throws ContentNotAddedException {
+  // public byte[] addCabecera (byte[] pdfEntrada, String rutaLogo, String
+  // nombreExpediente, String[] lineasOrganismo) throws ContentNotAddedException {
+  // public byte[] addCabecera (byte[] pdfEntrada, String rutaLogo, String
+  // nombreEntidad, String valorEntidad, String nombreDocumento, String[]
+  // lineasOrganismo) throws ContentNotAddedException {
+  public byte[] addPie(byte[] pdfEntrada, String texto) throws EeutilException {
 
     byte[] bytesSalida = null;
 
     ByteArrayInputStream bis = new ByteArrayInputStream(pdfEntrada);
     ByteArrayOutputStream salida = new ByteArrayOutputStream();
+    PdfReader reader = null;
+    PdfStamper stamp = null;
+
     try {
-      PdfReader reader = new PdfReader(bis);
+      reader = new PdfReader(bis);
       salida = new ByteArrayOutputStream();
-      PdfStamper stamp = new PdfStamper(reader, salida);
+      stamp = new PdfStamper(reader, salida, PdfWriter.VERSION_1_7);
       stamp.setFullCompression();
-      stamp.setFormFlattening(false);
+      stamp.setFormFlattening(true);
+      stamp.setFreeTextFlattening(false);
       int n = reader.getNumberOfPages();
 
-      PdfPTableDesigner designerHorizontal = new PieVisualizacionDesigner(widthTableHor);
-      PdfPTableDesigner designerVertical = new PieVisualizacionDesigner(widthTableVer);
+      PdfPTableDesigner designerHorizontal = new PieVisualizacionDesigner(WIDTHTABLEHOR);
+      PdfPTableDesigner designerVertical = new PieVisualizacionDesigner(WIDTHTABLEVER);
 
       PdfPTable pie;
 
@@ -125,24 +129,43 @@ public class PieAdder {
           pie = designerHorizontal.designTable(params);
         }
 
-        // pie.writeSelectedRows(0, -1, tablaSepEjeX, stamp.getImportedPage(reader, i).getHeight() -
-        // tablaSepEjeY, stamp.getOverContent(i));
+        // pie.writeSelectedRows(0, -1, tablaSepEjeX, stamp.getImportedPage(reader,
+        // i).getHeight() - tablaSepEjeY, stamp.getOverContent(i));
         pie.writeSelectedRows(0, -1, tablaSepEjeX, tablaSepEjeY, stamp.getOverContent(i));
       }
 
-      stamp.close();
-      reader.close();
-      salida.close();
+    } catch (NoClassDefFoundError e) {
+      if (e.getMessage().contains("bouncycastle")) {
 
-      bytesSalida = salida.toByteArray();
-
-    } catch (Exception e) {
-      logger.error("No se puede agregar el pie " + e.getMessage(), e);
-      throw new ContentNotAddedException("No se puede agregar el pie " + e.getMessage());
+        // logger.error("El fichero esta protegido y no ha podido abrirse.");
+        throw new EeutilException(
+            "El fichero esta protegido y no ha podido abrirse." + e.getMessage(), e);
+      } else {
+        // logger.error(e.getMessage());
+        throw new EeutilException(e.getMessage(), e);
+      }
 
     }
 
+    catch (Exception e) {
+      // logger.error("No se puede agregar el pie " + e.getMessage(), e);
+      throw new EeutilException("No se puede agregar el pie " + e.getMessage(), e);
 
+    } finally {
+      try {
+        if (stamp != null)
+          stamp.close();
+
+        if (reader != null)
+          reader.close();
+        if (salida != null)
+          salida.close();
+      } catch (DocumentException | IOException e) {
+        logger.error(e.getMessage(), e);
+      }
+    }
+
+    bytesSalida = salida.toByteArray();
 
     return bytesSalida;
 

@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2012-13 MINHAP, Gobierno de España This program is licensed and may be used,
- * modified and redistributed under the terms of the European Public License (EUPL), either version
- * 1.1 or (at your option) any later version as soon as they are approved by the European
- * Commission. Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied. See the License for the specific language governing permissions and
- * more details. You should have received a copy of the EUPL1.1 license along with this program; if
- * not, you may find it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
+ * Copyright (C) 2025, Gobierno de España This program is licensed and may be used, modified and
+ * redistributed under the terms of the European Public License (EUPL), either version 1.1 or (at
+ * your option) any later version as soon as they are approved by the European Commission. Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is
+ * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing permissions and more details. You
+ * should have received a copy of the EUPL1.1 license along with this program; if not, you may find
+ * it at http://joinup.ec.europa.eu/software/page/eupl/licence-eupl
  */
 
 package es.mpt.dsic.inside.fop.converter;
@@ -14,10 +14,14 @@ package es.mpt.dsic.inside.fop.converter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.datatype.XMLGregorianCalendar;
+
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;
-import es.mpt.dsic.inside.exception.AfirmaException;
+
 import es.mpt.dsic.inside.fop.model.documento.DocumentoEniConMAdicionales;
 import es.mpt.dsic.inside.fop.model.documento.MetadatoAdicional;
 import es.mpt.dsic.inside.fop.model.documento.TipoContenido;
@@ -26,6 +30,7 @@ import es.mpt.dsic.inside.fop.model.documento.TipoFirmasElectronicas;
 import es.mpt.dsic.inside.fop.model.documento.TipoMetadatos;
 import es.mpt.dsic.inside.model.InformacionFirmaAfirma;
 import es.mpt.dsic.inside.services.AfirmaService;
+import es.mpt.dsic.inside.utils.exception.EeutilException;
 import es.mpt.dsic.inside.ws.service.model.adicionales.TipoMetadatosAdicionales;
 import es.mpt.dsic.inside.ws.service.model.eni.documento.EnumeracionEstadoElaboracion;
 import es.mpt.dsic.inside.ws.service.model.eni.documento.TipoDocumental;
@@ -34,6 +39,9 @@ import es.mpt.dsic.inside.ws.service.model.eni.firma.TipoFirma;
 
 @Component
 public class DocumentConverter {
+
+  protected static final Log logger = LogFactory.getLog(DocumentConverter.class);
+
 
   public DocumentoEniConMAdicionales documentoEniConMAdicionalesWsToToModel(
       es.mpt.dsic.inside.ws.service.model.documento.DocumentoEniConMAdicionales input,
@@ -45,7 +53,7 @@ public class DocumentConverter {
   }
 
   private List<MetadatoAdicional> metadatoAdicionaWsToModel(TipoMetadatosAdicionales input) {
-    List<MetadatoAdicional> retorno = new ArrayList<MetadatoAdicional>();
+    List<MetadatoAdicional> retorno = new ArrayList<>();
     if (input != null && CollectionUtils.isNotEmpty(input.getMetadatoAdicional())) {
       for (es.mpt.dsic.inside.ws.service.model.adicionales.MetadatoAdicional adicional : input
           .getMetadatoAdicional()) {
@@ -89,8 +97,8 @@ public class DocumentConverter {
                   + infoAfirma.getFirmantes().get(0).getApellido1() + " "
                   + infoAfirma.getFirmantes().get(0).getApellido2());
               retorno.add(data);
-            } catch (AfirmaException e) {
-              e.printStackTrace();
+            } catch (EeutilException e) {
+              logger.error(e.getMessage(), e);
             }
           } else {
             TipoFirmasElectronicas data = new TipoFirmasElectronicas();

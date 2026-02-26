@@ -21,11 +21,18 @@ Los componentes incluidos en eeutil-vis-docexp-src.zip se enumeran a continuaciï
 	- resources
 		
 		- config
-			- schemas: contiene los esquemas de la aplicacion
+			- certificados
+			- img
+			- keystore
 			- afirma.properties
-			- visualizacion.textos.properties
 			- database.properties
+			- eeutil.properties
+			- escudo.jpg
 			- log4j.properties
+			- mail.properties
+			- rotado_escudo.jpg
+			- schredule-config.properties
+			- visualizacion.textos.properties
 
 		- external-libs: librerï¿½as externas y necesarias de instalar manualmente
 			- afirma
@@ -34,11 +41,7 @@ Los componentes incluidos en eeutil-vis-docexp-src.zip se enumeran a continuaciï
 			- jodconverter
 		
 		- scripts_bbdd: Scripts de BBDD
-			- 01-create_tables.sql
-			- 02-inserts.sql
-			- 03-create_procedures.sql
-			- 04-insert-prueba-test-user.sql
-			- 05-insert-admin-eeutil-misc.sql
+			- 00_datos_mysql_distribuible.sql
 	
 		
 	- licenses: Contiene las licencias bajo las que se distribuyen las librerï¿½as de las que depende EEUtil-vis-docexp.

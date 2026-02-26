@@ -31,19 +31,19 @@ public class ObjectFactory {
   public ObjectFactory() {}
 
   /**
+   * Create an instance of {@link Firmas }
+   * 
+   */
+  public Firmas createFirmas() {
+    return new Firmas();
+  }
+
+  /**
    * Create an instance of {@link TipoFirmasElectronicas.ContenidoFirma }
    * 
    */
   public TipoFirmasElectronicas.ContenidoFirma createTipoFirmasElectronicasContenidoFirma() {
     return new TipoFirmasElectronicas.ContenidoFirma();
-  }
-
-  /**
-   * Create an instance of {@link TipoFirmasElectronicas.ContenidoFirma.CSV }
-   * 
-   */
-  public TipoFirmasElectronicas.ContenidoFirma.CSV createTipoFirmasElectronicasContenidoFirmaCSV() {
-    return new TipoFirmasElectronicas.ContenidoFirma.CSV();
   }
 
   /**
@@ -55,11 +55,11 @@ public class ObjectFactory {
   }
 
   /**
-   * Create an instance of {@link Firmas }
+   * Create an instance of {@link TipoFirmasElectronicas.ContenidoFirma.CSV }
    * 
    */
-  public Firmas createFirmas() {
-    return new Firmas();
+  public TipoFirmasElectronicas.ContenidoFirma.CSV createTipoFirmasElectronicasContenidoFirmaCSV() {
+    return new TipoFirmasElectronicas.ContenidoFirma.CSV();
   }
 
   /**
