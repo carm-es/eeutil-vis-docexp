@@ -32,13 +32,13 @@
 <!-- 	    <property name="prettyLogging" value="true"/> -->
 <!-- 	    <property name="limit" value="-1"></property> -->
 <!-- 	</bean> -->
-	<bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" parent="abstractLoggingInterceptor">
+	<!-- bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor" parent="abstractLoggingInterceptor">
             <property name="prettyLogging" value="false"/>
         </bean>
  	<bean id="customLoggingInInterceptor" class="es.mpt.dsic.inside.security.interceptor.CustomLogginInInterceptor" parent="loggingInInterceptor"/> 
 	<bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor" parent="abstractLoggingInterceptor">
             <property name="prettyLogging" value="false"/>
-        </bean>
+        </bean -->
 	<!-- Fin Intecerceptors logging -->	
 
 	<jaxws:endpoint id="eeUtilServiceWs" implementor="#eeUtilService"
