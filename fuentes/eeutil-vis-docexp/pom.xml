@@ -178,6 +178,10 @@
       <artifactId>eeutil-comunes</artifactId>
       <version>${version.eeutils-shared}</version>
       <exclusions>
+	<exclusion>
+          <groupId>net.sf.ehcache</groupId>
+          <artifactId>ehcache-core</artifactId>
+        </exclusion>
         <!-- 				<exclusion> -->
         <!-- 					<groupId>org.slf4j</groupId> -->
         <!-- 					<artifactId>slf4j-log4j12</artifactId> -->
@@ -204,6 +208,10 @@
         <exclusion>
           <groupId>stax</groupId>
           <artifactId>stax-api</artifactId>
+        </exclusion>
+	<exclusion>
+          <groupId>net.sf.ehcache</groupId>
+          <artifactId>ehcache-core</artifactId>
         </exclusion>
         <!-- 				<exclusion> -->
         <!-- 					<groupId>org.slf4j</groupId> -->
